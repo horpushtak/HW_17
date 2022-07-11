@@ -16,12 +16,12 @@ api = Api(app)
 movie_ns = api.namespace('movies')
 
 
-@movie_ns.route('/movies')
+@movie_ns.route('/')
 class MoviesView(Resource):
     def get(self):
         movies = db.session.query(Movie.id, Movie.title, Movie.description, Movie.rating,
                                       Movie.trailer, Genre.name.label('genre'),
-                                      Director.name.label('director')).join(Genre).join(Director).all()
+                                      Director.name.label('director')).join(Genre).join(Director)
         director_id = request.args.get('director_id')
         genre_id = request.args.get('genre_id')
         if director_id:

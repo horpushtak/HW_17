@@ -8,12 +8,8 @@ class MovieSchema(Schema):
     trailer = fields.Str()
     year = fields.Int()
     rating = fields.Float()
-    genre_id = fields.Int()
-    director_id = fields.Int()
-    """genre_id = fields.Int()  # Нужно ли что-то предпринимать в связи с тем, что это ForeignKey?
-    "genre =  # Тут тоже грустно стало"
-    director_id = fields.Int()
-    "director ="""
+    genre = fields.Str()
+    director = fields.Str()
 
 
 class DirectorSchema(Schema):
